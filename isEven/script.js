@@ -1,6 +1,5 @@
 function isEven(n) {
- const result = n % 2 === 0 ? true : false;
- return result;
+ return n % 2 === 0;
 }
 
 console.log(isEven(5));
