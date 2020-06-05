@@ -4,10 +4,13 @@ const itemList = [
   { id: "c", val: 10, w: 3 },
   { id: "d", val: 7, w: 5 },
   { id: "e", val: 14, w: 2 },
+  { id: "f", val: 1, w: 2 },
+  { id: "g", val: 1, w: 2 },
 ];
 
 function opt(items, maxWeight) {
   const result = [];
+  const remainingItems = [];
   let currentWeight = 0;
 
   for (const item of items) {
@@ -15,31 +18,48 @@ function opt(items, maxWeight) {
     result.push({ id: item.id, value: proportionalValue, weight: item.w });
   }
 
-  for (let outer = 0; outer < result.length; outer++) {
-    let outerEl = result[outer];
-
-    for (let inner = outer + 1; inner < result.length; inner++) {
-      let innerEl = result[inner];
-
-      if (outerEl.value < innerEl.value) {
-        result[outer] = innerEl;
-        result[inner] = outerEl;
-
-        outerEl = result[outer];
-        innerEl = result[inner];
-      }
-    }
-  }
+  orderList(result);
 
   setWeight();
 
   while (currentWeight > maxWeight) {
+    remainingItems.push(result[result.length - 1]);
     result.pop();
     currentWeight = 0;
     setWeight();
   }
 
+  orderList(remainingItems);
+
+  if (maxWeight - currentWeight > 0) {
+    for (const item of remainingItems) {
+      if (item.weight <= maxWeight - currentWeight) {
+        result.push(item);
+        remainingItems.pop(item);
+        break;
+      }
+    }
+  }
+
   return result;
+
+  function orderList(list) {
+    for (let outer = 0; outer < list.length; outer++) {
+      let outerEl = list[outer];
+
+      for (let inner = outer + 1; inner < list.length; inner++) {
+        let innerEl = list[inner];
+
+        if (outerEl.value < innerEl.value) {
+          list[outer] = innerEl;
+          list[inner] = outerEl;
+
+          outerEl = list[outer];
+          innerEl = list[inner];
+        }
+      }
+    }
+  }
 
   function setWeight() {
     for (const item of result) {
@@ -48,4 +68,4 @@ function opt(items, maxWeight) {
   }
 }
 
-console.log(opt(itemList, 10));
+console.log(opt(itemList, 12));
