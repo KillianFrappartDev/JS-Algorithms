@@ -1,16 +1,6 @@
 // In mathematics, the Euclidean algorithm, or Euclid's algorithm, is an efficient method for computing the greatest common divisor (GCD)
 // of two numbers, the largest number that divides both of them without leaving a remainder.
 
-// ---- PRIME NUMBERS -----
-function isPrime(n) {
-  for (let i = 2; i < n; i++) {
-    if (n % i === 0) {
-      return false;
-    }
-  }
-  return true;
-}
-
 // O(n)
 function findGCD(numA, numB) {
   const divisors = [];
