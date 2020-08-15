@@ -1,3 +1,10 @@
+/*
+==> Find the smallest number of an array;
+Params: Array of integers.
+Output: Smallest number.
+*/
+
+
 function minNum(numbers) {
     numbers.sort(function(a, b){
         return a - b;
