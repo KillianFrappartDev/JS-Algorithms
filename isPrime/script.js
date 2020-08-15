@@ -1,3 +1,10 @@
+/*
+==> Is it a prime number ? Only divisible by itself.
+Params: Integer.
+Output: True/False.
+*/
+
+
 function isPrime(n) {
 
   for (let i = 2; i < n; i++) {
