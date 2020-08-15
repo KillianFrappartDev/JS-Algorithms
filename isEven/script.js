@@ -1,3 +1,9 @@
+/*
+==> Is a number even.
+Params: Integer.
+Output: True/False.
+*/
+
 function isEven(n) {
  return n % 2 === 0;
 }
