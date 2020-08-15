@@ -1,3 +1,9 @@
+/*
+==> Is a number power of two ?
+Params: Integer.
+Output: True/False.
+*/
+
 function isPowerTwo(n) {
     if (n < 1) {
         return false;
