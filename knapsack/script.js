@@ -1,3 +1,9 @@
+/*
+==> You can carry a limited weight and you have to fill your bag with the most valuables items.
+Params: Array of items with value and weight && maximum weight.
+Output: Optimal bag organisation. 
+*/
+
 const itemList = [
   { id: "a", val: 3, w: 3 },
   { id: "b", val: 6, w: 8 },
