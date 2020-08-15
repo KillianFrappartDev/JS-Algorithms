@@ -1,3 +1,10 @@
+/*
+==> Sort an array of integer.
+Params: array of integers.
+Output: Sorted array.
+*/
+
+
 function sort(arr) {
   const newArray = [...arr];
 
